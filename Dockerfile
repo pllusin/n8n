@@ -75,6 +75,9 @@ RUN ln -s /usr/local/lib/node_modules/n8n/bin/n8n /usr/local/bin/n8n \
     && mkdir -p /home/node/.n8n \
     && chown node:node /home/node/.n8n
 
+RUN cd /home/node/.n8n && mkdir nodes && cd nodes &&  npm i n8n-nodes-persiandate n8n-nodes-pocketbase
+
+
 EXPOSE 5678
 USER node
 ENTRYPOINT ["tini", "--", "/docker-entrypoint.sh"]
